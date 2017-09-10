@@ -15,18 +15,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Spamalot implements ActionListener {
-	static final String FAKE_USERNAME = "asdfghjkl;@gmail.com";
+	static final String FAKE_USERNAME = "asdfghjkl@gmail.com";
 	static final String FAKE_PASSWORD = "soupysoup";
 	static JTextField text = new JTextField(20);
 	static JButton button = new JButton();
 	JButton button1 = new JButton();
-	static String message = "Hello Friend, /n click here to earn free trip to Hawaii /n NOT SPAM AT ALL /n From /n Bob";
+	static String message = "Hello Friend, /n click here to earn free trip to Hawaii /n NOT SPAM AT ALL /n From /n NOT SPAM";
 	static String subject = "NOT SPAM";
 	static String recipient;
+	static String subject2 = "Hello Friend";
+	static String message2 = "Hello, /n I just wanted to remind you that we're friends, friend.";
 	public static void main(String[] args) {
 		Spamalot spam = new Spamalot();
 		spam.UI();
-		spam.sendSpam(recipient, subject, message);
 	}
 	void UI() {
 		JFrame frame = new JFrame();
@@ -40,6 +41,7 @@ public class Spamalot implements ActionListener {
 		panel.add(button);
 		panel.add(button1);
 		button.addActionListener(this);
+		button1.addActionListener(this);
 	}
 	private static boolean sendSpam(String recipient, String subject, String content) {
 
@@ -56,7 +58,6 @@ public class Spamalot implements ActionListener {
 		});
 
 		try {
-
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(FAKE_USERNAME));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
@@ -70,14 +71,17 @@ e.printStackTrace();
 return false;
 		}
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		recipient = text.getText();
+		System.out.println(recipient);
 		if (e.getSource() == button) {
-		Spamalot.sendSpam(recipient, subject, message);
-		if (sendSpam(recipient, subject, message)) {
-			text.setBackground(Color.green);
+			Spamalot.sendSpam(recipient, subject, message);
 		}
+		if (e.getSource() == button1) {
+			Spamalot.sendSpam(recipient, subject2, message2);
 		}
 	}
 }
