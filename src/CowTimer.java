@@ -19,7 +19,7 @@ public class CowTimer {
 	}
 	public void setTime(int minutes) {
 		this.minutes = minutes;
-		System.out.println("Cow set to " + minutes + " minutes.");
+		System.out.println("Cow set to " + minutes + " minute(s).");
 	}
 
 	public void start() throws InterruptedException {
@@ -27,7 +27,7 @@ public class CowTimer {
 		 * 2. Count down the minutes, print the current minute then sleep for 60
 		 * seconds using Thread.sleep(int milliseconds).
 		 */
-		for (int i = timer.minutes * 60; i > 0; i--) {
+		for (int i = timer.minutes * 60; i > -1; i--) {
 			System.out.println(i);
 			Thread.sleep(1000);
 			}
@@ -37,7 +37,7 @@ public class CowTimer {
 		 * your default package. Tell the students (by speaking) it's time to walk.
 		 */
 		if (timer.minutes == 0) {
-			//playSound();
+			speak("Moo Moo");
 		}
 	}
 
