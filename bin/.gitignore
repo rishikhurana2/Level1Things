@@ -7,6 +7,7 @@
 /CutenessTV.class
 /DrumKit.class
 /DuelingButtons.class
+/EasyButton.class
 /GetTheLatestTweet.class
 /HarryPoter.class
 /Human.class
@@ -41,6 +42,8 @@
 /TeaParty.class
 /TeaPartyTest.class
 /Textbook.class
+/TypingTutor.class
+/WhackAMole.class
 /banana.png
 /cherry.png
 /drum.png
@@ -48,6 +51,3 @@
 /drumSound.wav
 /drumSound2.wav
 /orange.png
-/TypingTutor.class
-/EasyButton.class
-/WhackAMole.class
